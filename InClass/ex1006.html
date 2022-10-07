@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        li, h3 { color:aqua; } /* 태그 셀렉터 */
+        #bbb { color:forestgreen; } /* 아이디 셀렉터 */
+        .aaa { color:brown; }  /* 클래스 셀렉터 */
+        #ccc { color:darkred; }
+        div > strong { color:fuchsia; }
+        input[type="text"] { color:red; } /* input태그 중에서 타입이 텍스트인 놈만 */
+        /* input { color:green; }  /* input태그 */
+        /* 태그:가상유형 -- 가상상태, 조건에 따라 적용할 때 사용 */
+        li:hover { background:cyan; }  /* 가상 셀렉터 : 마우스 위치(오버)에 따른 CSS 적용 */
+    </style>
+</head>
+
+<body>
+    
+<h3>Web Programming</h3>
+<hr>
+<div>
+    <strong>밥먹고 합시다</strong><br>
+    
+	<!-- 클래스 셀렉터 스타일 적용 확인 -->
+    <div class="aaa">2학기 <strong>학습 내용</strong></div>
+	<ul>
+		<!-- 태그 셀렉터 스타일 적용 확인 -->
+        <!-- (2번째 확인) 클래스 + 태그 셀렉터가 같이 적용할 경우 어떻게? -->
+        <li class="aaa">HTML5</li>
+		<li><strong>CSS</strong></li>
+        <!-- 태그 + 아이디 셀렉터 같이 적용된 경우 어떻게? -->
+        <!-- (3번째 확인) 태그 + 클래스 + 아이디 적용시 어떻게? -->
+        <!-- 속성 순서는 의미없음 : 아이디가 우선 -->
+		<li class="aaa" id="ccc">JAVASCRIPT</li>
+	</ul>
+    <!-- 아이디 셀렉터 스타일 적용 확인 -->
+	<div id="bbb">60점 이하는 F!</div>
+    <form>
+        <!-- Input 태그 타입에 CSS 적용 --->
+        <input type="text">
+        <input type="password">
+    </form>
+</div>
+
+</body>
+</html>
