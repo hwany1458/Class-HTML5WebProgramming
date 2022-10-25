@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+        <style>
+        body { width: 500px;
+               margin: 10px auto; }
+        
+        /* div영역을 적절하게 위치조정 - One true layout */
+        #middle { overflow: hidden; }
+        #left { float: left; width: 150px; background: red; }
+        #right { float: left; width: 350px; background: blue; }
+        #top { background: green; }
+        #bottom { background: purple; }
+    </style>
+</head>
+
+<body>
+    <div id="top">헤더여역</div>
+    <div id="middle"></div>
+    <div id="left">메뉴</div>
+    <div id="right">본문영역</div>
+    <div id="bottom">꼬릿말영역</div>
+</body>
+</html>
