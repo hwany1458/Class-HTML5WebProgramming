@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style></style>
+    <!-- script 태그는 head 태그에 있어도 되고 --->
+    <script>
+        /* 주석 */
+        alert("Hello, javascript ...");
+    </script>
+</head>
+
+<body>
+    <h3>그림띄우기</h3>
+    <hr>
+    <!-- 1번 방법 -->
+    <img src="./images/android.png"
+         onmouseover="this.src='./images/ios.png'"
+         onmouseout="this.src='./images/android.png'">
+    <br>
+    <!-- script 태그는 body 태그에 있어도 됨 --->
+    <!-- 2번 방법 -->
+    <!-- script> .. </script  -->
+    
+    <!-- 3번 방법 -->
+    <script src="./js/ex1101.js">
+    </script>
+
+    <!-- javascript : script 태그 이용 -->
+    <img src="./images/android.png"
+         onmouseover="mouseOver(this)"
+         onmouseout="mouseOut(this)">
+    
+    <script>
+        document.write("<br>");
+        document.write("<h3>Hello, javascript</h3>");
+    </script>
+    <!--  이놈하고 동일한 결과를 얻음
+    <br>
+    <h3>Hello, javascript</h3 -->
+    
+    html 주석은?       <br>
+    css 주석은?        <br>
+    javascript 주석은? <br>
+</body>
+</html>
