@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <h3>11.03.</h3>
+    <hr>
+    <script>
+        var str = '현중';
+        str = 'Hello ' + str;
+        // 내용 출력 방법 (1) alert(), (2) document.write()
+        //alert(str);
+        document.write("<p>" + str + "</p>");
+        
+        var num = 10;
+        if (num%2 == 0)
+            document.write("<p>짝수</p>");
+        else
+            document.write("<p>홀수</p>");
+        
+        var date = new Date();
+        var currentTime = date.getHours();
+        if ((6<=currentTime) && (currentTime<=18))
+            document.write("<p>해떴음</p>");  // 해떴음
+        else
+            document.write("<p>해졌음</p>");  // 해졌음
+        
+        
+        var ret = prompt("입력하세요", "");
+        if (ret == null) {
+            // 취소버튼 클릭했을 때
+            alert("취소 버튼을 클릭했습니다");
+        } else if (ret == "") {
+            // 입력하지 않고 확인버튼 클릭했을 때
+            alert("내용을 입력하지 않고 확인버튼을 클릭했습니다");
+        } else {
+            // 입력하고 확인버튼 클릭했을 때
+            
+            // 문자열을 숫자로 변환 -- 산술연산을 할 수 있음
+            if (!isNaN(ret)) {
+                var testStr = Number(ret) + 1;
+            } else {
+                var testStr = ret;
+            }
+            
+            document.write("<p>" + testStr + "</p>");
+        }
+        
+        
+        var arr = [1458, '이용환'];
+        document.write("<p> 배열출력: " + arr + "</p>");
+        
+        // 반복문에서 인덱스번호를 초과하여 실행하면 어떤 메시지가 뜰까요?
+        // element는 2개 (0,1) -- 인덱스2으로 접근하면?? 
+        // C에서는 out of range와 같은 런타임오류가 나지만,
+        // 자바스크립트에서는 undefined 데이터를 출력
+        for(var i=0; i<arr.length; i++){
+            document.write("<p>" + arr[i] + "</p>")
+        }
+        
+        // 기본예제 9-1 ~ 9-11까지 작성해서 제출
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
