@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <h3>Javascript 11.08.</h3>
+    <hr>
+    
+    <!-- 실습 6번까지 꼭 작성해서 제출 (동일 폴더에서 과제1108.txt 조건문/반복문 참조) --->
+    <script>
+        var arr = ['딸기', '체리', '키위', '포도'];
+        document.write(arr);
+        // 배열에서 인덱스번호 요소에 접근
+        arr[2] = "디지털콘텐츠";
+        document.write("<p>");
+        for (var i = 0; i<arr.length; i++) {
+            document.write(arr[i] + "  ");
+        }
+        document.write("</p>");
+    </script>
+    <hr>
+    
+    <!-- 자바스크립트 함수 --->
+    <script>
+        // 함수 선언 -- (선언적 함수)
+        // function 함수이름() { .. }
+        /*
+        function f(x) {
+            var res = x * x;
+            return res;
+        }
+        */
+        
+        // 익명함수 선언
+        // var 함수이름 = function () { .. }
+        var f = function (x) {
+            var res = x * x;
+            return res;
+        }
+        
+        
+        // 함수 호출
+        document.write("결과값은 " + f(3));
+        
+        function adder(x, y) {
+            var sum = x + y;
+            return sum;
+        }
+        var s = adder(100, 200);
+        document.write("<p> 결과는 " + s + "</p>");
+        
+    </script>
+    
+    <!-- 슬라이드 4번까지 꼭 작성해서 제출 (동일 폴더에서 과제1108.txt 참조) --->
+    
+    <hr>
+    <script>
+        // 객체 선언
+        var student = {
+            name: '현중',
+            sNumber: '2000000',
+            phoneNumber: '01000000',
+            addr: '전북 익산시 익산대로 460'
+        };
+        
+        document.write(student['name']);
+        document.write("<br>");
+        document.write(student.sNumber);
+    </script>
+</body>
+</html>
+
