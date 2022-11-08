@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <h3>Javascript - 조건문/반복문</h3>
+    <hr>
+    <script>
+        var arr = ['딸기', '체리', '키위', '포도', '사과', '수박'];
+        document.write("<p> 배열내 요소는 " + arr + "</p>");
+        arr[2] = "디지털콘텐츠";
+        document.write("배열 처리<br><p>");
+        for(var i=0; i<arr.length; i++) {
+            document.write(arr[i] + " ");
+        }
+        document.write("</p>");
+        document.write("<hr>");
+        
+        var inputStr = prompt('임의의 정수(0~100)를 입력하세요', '');
+        var inputNum = Number(inputStr);
+        
+        document.write("성적 산출<br><p>");
+        if (90 < inputNum ) { document.write("credit is A"); }
+        else if ((80 < inputNum) && (inputNum < 90)) { document.write("credit is B"); }
+        else if ((70 < inputNum) && (inputNum < 80)) { document.write("credit is C"); }
+        else if ((60 < inputNum) && (inputNum < 70)) { document.write("credit is D"); }
+        else { document.write("credit is F"); }
+        document.write("</p><hr>");
+        
+        document.write("홀짝수 구분<br><p>");
+        if ((inputNum%2) == 0) { document.write("짝수"); }
+        else { document.write("홀수"); }
+        document.write("</p><hr>");
+
+        document.write("누적합계 계산<br><p>");
+        var sum = 0;
+        for (var i=0; i<=inputNum; i++) {
+            sum += i;
+        }
+        document.write("전체 누적합계=" + sum);
+        document.write("<br>");
+        
+        sum = 0;
+        for (var i=0; i<=inputNum; i++) {
+            if (i%2 == 1) { continue; }
+            else sum += i; 
+        }
+        document.write("짝수 누적합계=" + sum);
+        document.write("</p><hr>");
+        
+    </script>
+</body>
+</html>

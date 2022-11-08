@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <h3>Javascript - function</h3>
+    <hr>
+    <script>
+        // 함수선언 (익명함수 선언)
+        var func = function() {
+            document.write("<p>함수1</p>");
+            document.write("<p>함수2</p>");
+        }
+        
+        // (선언적함수 선언)
+        function func1() {
+            document.write("<p>func1() 함수1</p>");
+            document.write("<p>func1() 함수2</p>");
+        }
+        
+        // 함수 호출
+        func();
+        func1();
+
+        document.write("<hr><br>");
+        
+        // 실습문제 (1)
+        function whichIsLarger(x, y) {
+            if (x > y) { 
+                document.write("x is larger than y (앞의 숫자가 큽니다)<br>");
+                return x; 
+            }
+            else if (x < y) { 
+                document.write("y is larger than x (뒤의 숫자가 큽니다)<br>");
+                return y; 
+            } else {
+                document.write("x is equal to y (두 숫자가 같습니다)<br>");
+                return x;
+            }
+        }
+        // 함수호출(2)
+        whichIsLarger(10, 20);
+        
+        document.write("<br>");
+        
+        // (3)
+        function abso(x) {
+            if (x > 0) { return x; }
+            else { return -x; }
+        }
+        document.write("3의 절대값은 " + abso(3) + "<br>");
+        document.write("-3의 절대값은 " + abso(-3) + "<br>");
+        
+        document.write("<br>이름을 반복적으로 출력<br>");
+        
+        // 아래 4,5번을 위해 사용자 입력을 받음
+        var inputStr = prompt("원하는 반복 회수, 출력을 원하는 구구단 수를 정수(2~9)로 하나만 입력하세요", "");
+        var inputNum = parseInt(inputStr);
+        
+        // (4)
+        function printName(x) {
+            for(var i=0; i<x; i++) {
+                document.write("이용환 ");
+            }
+        }
+        printName(inputNum);
+        
+        document.write("<hr><br>구구단 출력<br>");
+        
+        // (5)
+        function gugudan(x) {
+            for (var i=1; i<=9; i++) {
+                document.write(x + "*" + i + "=" + (x*i) + "<br>");
+            }
+        }
+        gugudan(inputNum);
+        
+    </script>
+</body>
+</html>
