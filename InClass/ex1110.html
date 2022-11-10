@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <h3>Javascript 11.10.</h3>
+    
+    <hr>
+    <script>
+        // in C# or Java, 객체는 속성과 기능(동작)을 가짐
+        // 속성은 변수로, 기능은 메소드로 구현됨
+        
+        // 객체 선언 (변수, 함수를 모두 포함할 수 있음)
+        var student = {
+            name: '현중',
+            sNumber: '2000000',
+            phoneNumber: '01000000',
+            addr: '전북 익산시 익산대로 460',
+            report: function(str) {
+                document.write("<p>모든 사람의 숙제는 <b>" + str + "</b> 혼자서 다 합니다^^</p>");
+            }
+        };
+        
+        // 키를 통해 객체 속성에 접근
+        document.write(student['name']);  // [] 사용
+        document.write("<br>");
+        document.write(student.sNumber);  // 점(.) 사용
+        
+        
+        // 객체가 가지고 있는 모든 요소들을 하나씩 처리하리면 (for in 반복문을 활용)
+        for (var i in student) {
+            document.write("요소 " + i + " = " + student[i] + "<br>");
+        }
+        
+        document.write("<hr>객체의 함수를 호출합니다<br>");
+        
+        // 메소드 호출
+        student.report(student.name);
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

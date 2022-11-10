@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script>
+        // 이벤트 연결
+        // 이벤트 없이, querySelector()을 사용하면, (뒤에 나오는 h3 문서 객체를 찾을 수가 없어) 오류 발생
+        window.onload = function() {
+            //document.querySelector('h3').style.color = 'blue';
+            
+            // 문서객체 선택 
+            // (1번) 선택자(태그)로 골라냄 -- querySelector()
+            // 동일 태그가 여러 개일 경우는 맨 앞의 놈을 골라냄
+            //var obj = document.querySelector('h3');
+            
+            // (2번) 태그 속성으로 id를 부여해서 골라냄 -- getElementById()
+            // 만약에, id가 중복되면, 앞의 놈(먼저 나온 놈)을 골라냄
+            var obj = document.getElementById('xxx');
+            
+            // 선택한 문서 객체를 수정변경 (속성, 내용을 모두 변경할 수 있음)
+            obj.style.color = 'white';
+            obj.style.backgroundColor = 'black';
+            obj.innerHTML = 'Shortly DOM';
+        };
+    </script>
+
+</head>
+
+<body>
+    <h3>Document Object Model</h3>
+    <h3 id="xxx" style="color:red">11.10.</h3>
+    <hr>
+    <p>The Document Object Model (<strong>DOM</strong>) is the data representation of the objects that comprise the structure and content of a document on the web. This guide will introduce the DOM, look at how the DOM represents an HTML document in memory and how to use APIs to create web content and applications.</p>
+
+    <!-- 이벤트 없이 여기서 수행하면, (웹페이지에) 내용이 표시되고 난 다음, 
+        수행하기 때문에 원하는대로 동작하기는 함 
+        script태그를 head태그 내에 정의하는게 적합한지, 
+        body태그 내에 정의하는게 적합한지는 애플리케이션 성격에 따라, 다를수 있음 -->
+    <!-- script>
+        document.querySelector('h3').style.color = 'blue';
+    </script -->
+
+    <!-- 과제 : 제출한 개인 소개 홈페이지에 대한 DOM을 작성하여 제출함 -->
+</body>
+</html>
