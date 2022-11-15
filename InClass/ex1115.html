@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    <script>
+        // 이벤트연결
+        window.onload = function() {
+            // 문서 객체를 선택
+            //var header3 = document.querySelector('h3');
+            // 문서 객체를 조작
+            //header3.innerHTML = '문서객체 조작';
+            //header3.style.color = 'white';
+            //header3.style.background = 'black';
+            
+            var header3 = document.querySelectorAll('h3');
+            
+            // 여러개를 묶어서 가져오기 때문에 배열로 처리
+            for (var i=0; i<header3.length; i++) {
+            
+            // 한놈만 처리한 예
+            var h = header3[i];
+            var rgbColor = i * 50;
+                
+            h.innerHTML = '문서객체 조작(' + i + ')';
+            h.style.color = 'white';
+            //h.style.background = 'black';
+                h.style.background = 'rgb(' + rgbColor + ',' + rgbColor + ',' + rgbColor + ')';
+                
+            }
+            
+            // -------------
+            /*  
+            // 교재(글자속성 변경 예시) : 다른 예제를 돌리기 위해 주석처리함.
+            var output = '';
+            for (var i=0; i<3; i++) {
+                output += '<h3>제목(' + i + ')</h3>';
+            }
+            
+            // body 내에 텍스트로 들어감
+            //document.body.textContent = output;
+            document.body.innerHTML = output;
+            */
+            
+            // 스타일 변경하는 예
+            var guess = document.getElementById('zzz');
+            guess.style.backgroundColor = 'blue';
+            
+            var nike = document.getElementById('yyy');
+            // 문서객체의 속성을 변경
+            nike.src = 'http://61.245.246.242/images/banner1.jpg';
+            nike.width = '360';
+            nike.height = '240';
+            
+            // 문서객체를 변경하여 클릭
+            var butNoAction = document.getElementById('NoLink');
+            butNoAction.onclick = function() {
+                // 함수 호출되는 것을 확인하기 위해 백그라운드 색깔을 변경함
+                butNoAction.style.background = 'green';
+                // 기본 이벤트를 제거
+                return false;
+            };
+        };
+    </script>
+    
+    <script>
+        function buttonClickEvent() {
+            alert('버튼을 클릭했습니다');
+        }
+    </script>
+</head>
+
+<body>
+    <h3>Document Object Model</h3>
+    <h3>문서객체모델</h3>
+    <h3>2022.11.15.</h3>
+    <h3>화요일</h3>
+    <h3>5,6교시 웹(HTML)프로그래밍</h3>
+    <hr>
+    <h4 id="zzz" style="background-color: red;">스타일 테스트</h4>
+    <p>The Document Object Model (<strong>DOM</strong>) is the data representation of the objects that comprise the structure and content of a document on the web. This guide will introduce the DOM, look at how the DOM represents an HTML document in memory and how to use APIs to create web content and applications.</p>
+    <!-- img src="http://61.245.246.242/images/banner1.jpg" -->
+    <img id="yyy">
+    <br><br>
+    <button onclick="buttonClickEvent()">버튼클릭</button>
+    
+    <!-- 이 부분은 수업시간에 애기하지 못한 부분인데, 
+        (교재에 나와있어서, 파일 업로드 전에) 몇자 적어봅니다. 각자 테스트해보기 바랍니다 -->
+    <br>
+    <!-- a태그는 html내에 하이퍼링크를 걸어, 클릭을 통해 해당 링크로 이동이 가능  -->
+    <a href="http://www.naver.com">여기를 클릭해서 링크로 넘어갑니다</a>
+    
+    <br>
+    <!-- 문서객체를 연결하여, 링크로 넘어가는 것을 막을 수 있음 -->
+    <a id="NoLink" href="http://www.naver.com">여기를 클릭해도 안 넘어갑니다</a>
+    
+</body>
+</html>
+
+
+
+
+
