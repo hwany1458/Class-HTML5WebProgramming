@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>그림판 만들기</title>
+	<link href="ex14-01.css" type="text/css" rel="stylesheet">
+	<script src="ex14-01.js"></script>
+</head>
+<body onload="init()">
+<h3>그림판입니다. 그림을 그려보세요</h3>
+<hr>
+<div id="menu">
+	<div id="palette">
+		<div class="color" style="background-color:maroon"></div>
+		<div class="color" style="background-color:red"></div>
+		<div class="color" style="background-color:orange"></div>
+		<div class="color" style="background-color:yellow"></div>
+		<div class="color" style="background-color:olive"></div>
+		<div class="color" style="background-color:purple"></div>
+		<div class="color" style="background-color:fuchsia"></div>
+		<div class="color" style="background-color:white"></div>
+		<input type="color" id="colorInput" value="#00ff00">
+		<div class="color" style="background-color:lime; clear:both"></div>
+		<div class="color" style="background-color:green"></div>
+		<div class="color" style="background-color:navy"></div>
+		<div class="color" style="background-color:aqua"></div>
+		<div class="color" style="background-color:teal"></div>
+		<div class="color" style="background-color:black"></div>
+		<div class="color" style="background-color:silver"></div>
+		<div class="color" style="background-color:gray"></div>
+		<div class="color" style="background-color:white"></div>		
+		<div class="color" style="background-color:white"></div>		
+	</div>
+	<div id="linewidth">선굵기
+		<input type="number" id="widthInput" value="1" min="0" max="20" step="1" 
+				onchange="lineWidth=this.value">
+	</div>
+	<div id="selectedColor" title="그리기 선 색입니다."></div>
+	<div id="mouselocation"></div>
+</div>
+<canvas id="myCanvas" style="background-color:aliceblue" width="500" height="400">
+</canvas>
+</body>
+</html>

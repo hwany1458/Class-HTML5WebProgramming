@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>오디오 리스트 연속 재생</title>
+<style>
+select {
+	width : 200px;
+}
+button#play {
+	border : 1px solid blue;
+	border-radius : 2px;	
+}
+button#next {
+	border : 1px solid green;
+	border-radius : 3px;
+}
+button#play:hover {
+	border-width : 2px;
+}
+button#next:hover {
+	border-width : 2px;
+}
+</style>
+</head>
+<body>
+<h3>오디오 리스트 연속 재생</h3>
+<hr>
+<p>처음 play 버튼을 누르면 리스트에 있는 곡이 연속하여 자동 재생 됩니다. 
+마우스로 다른 곡을 선택하면 곡이 바뀝니다.
+next 버튼을 누르면 다음 곡으로 넘어갑니다.
+</p>
+<hr>
+<audio id="audio" controls>브라우저가 audio 태그를 지원하지 않습니다.</audio>
+<p>
+<select id="select" size=3 onchange="changeplay()">
+	<option value="media/EmbraceableYou.mp3" selected>EmbraceableYou</option>
+	<option value="media/MoonGlow.mp3">MoonGlow</option>
+	<option value="media/Aegukga.mp3">Aegukga</option>
+	<option value="media/whitechristmas.mp3">whitechristmas</option>
+</select>
+<button id="play" onclick="control(event)">play</button>
+<button id="next" onclick="control(event)">next</button>
+<p>
+<div id="msg">현재 연주되는 곡명이 보입니다.</div>
+<script>
+var divEmt = document.getElementById("msg");
+var audio = document.getElementById("audio");
+var select = document.getElementById("select");
+var index = 0; // 처음 연주하는 곡
+
+// 사용자가 버튼을 눌렀을 때 click 이벤트 리스너
+function control(e) {
+	if(e.target.id == "play") { // play 버튼 클릭
+		myplay(index); // 현재 곡
+	}
+	else if(e.target.id == "next") { // next 버튼 클릭
+		index++; // 다음 곡
+		index %= select.length;
+		myplay(index);
+		select.selectedIndex = index;
+	}
+}
+
+// 현재 연주가 끝나면 다음 곡 연주 시작
+audio.onended = function (e) { // 현재 연주가 끝났을 때 이벤트 리스너
+	index++; // 다음 곡
+	index %= select.length;
+	myplay(index);
+}
+
+function myplay(n) { // n번째 곡 연주
+	index = n;
+	audio.src = select.options[index].value;
+	audio.load();
+	audio.play(); // 재생
+	divEmt.innerHTML = select.options[index].value + "를 재생합니다.";
+}
+
+function changeplay() {
+	myplay(select.selectedIndex);
+}
+</script>
+</body>
+</html>

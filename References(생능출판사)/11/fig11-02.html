@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>경로를 설명하는 예</title></head>
+<body>
+<canvas id="myCanvas" style="background-color:aliceblue"
+	 width="200" height="150"></canvas>
+<script>
+	var canvas = document.getElementById('myCanvas');
+	var context = canvas.getContext('2d');
+
+	context.beginPath();
+	context.moveTo(120, 20); // (120, 20)을 시작점으로 설정
+	context.lineTo(20, 50); // (120, 20)에서 (20, 50)까지의 직선을 경로에 추가
+	context.lineTo(150, 120); // (20, 50)에서 (150, 120)까지의 직선을 경로에 추가
+	context.strokeStyle = "magenta"; // 선 색 
+	context.stroke(); // 경로에 있는 모든 도형 그리기
+</script>
+</body>
+</html>

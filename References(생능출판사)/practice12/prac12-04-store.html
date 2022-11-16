@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>일기 쓰기</title>
+<script>
+function store() {
+	if(!window.localStorage) { alert("지원하지 않습니다."); return;}
+	var date = document.getElementById("date").innerHTML;
+	var memo = document.getElementById("memo").value;	
+	localStorage.setItem(date, memo);
+}
+function view() {
+	var win = window.open("prac12-04-view.html", "viewwin");
+}
+
+function printDate() {
+	var span = document.getElementById("date");
+	var today = new Date();
+	var str = today.getFullYear() + "." 
+			+ (today.getMonth()+1) + "."
+			+ today.getDate(); 
+	span.innerHTML = str;
+}
+</script>
+<style>
+textarea {
+	font-size : 1.1em;
+}
+</style>
+</head>
+<body onload="printDate();">
+<h3>일기쓰기</h3>
+<hr>
+<form>
+<div>오늘 <span id="date"></span></div>
+<textarea id="memo" cols="50" rows="10"></textarea>
+<br>
+<input type="button" value="저장" onclick="store()">
+<input type="button" value="보기" onclick="view()">
+</form>
+</body>
+</html>

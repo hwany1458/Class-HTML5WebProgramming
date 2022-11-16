@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>캔버스</title>
+<script>
+function draw() {
+	var canvas =  document.getElementById("can"); // (1) 캔버스 DOM 객체를 알아낸다.
+	var context = canvas.getContext("2d"); // (2) 그래픽 콘텍스트 객체를 알아낸다.
+	context.beginPath(); // (3) 경로를 새로 구성한다.
+	context.moveTo(10, 10); // (4) (10, 10)의 시작점을 입력한다.
+	context.lineTo(50, 50); // (5) (50, 50)까지 직선을 만든다.
+	context.stroke(); // (6) 직선이 캔버스에 그려지게 한다.
+}
+</script>
+</head>
+<body onload="draw()">
+<canvas id="can" width="300" height="300"></canvas>
+</body>
+</html>

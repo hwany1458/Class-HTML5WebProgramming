@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>캔버스에 파이 차트 그리기</title>
+<script>
+// 학점 별로 파이의 배경색
+var colors = ["blue", "green", "yellow", "magenta", "red"];
+var grades = ["A", "B", "C", "D", "F"];
+var canvas;
+var context;
+var inputObjs;
+
+function init() {
+	canvas = document.getElementById("canvas");
+	context = canvas.getContext("2d");
+	inputObjs = document.getElementsByClassName("num");	
+}
+function drawChart() {
+	var total = 0; // 전체 학생 수
+	for(var i=0; i<inputObjs.length; i++) { // 학점별 입력창의 개수
+		var n = parseInt(inputObjs[i].value);
+		if(isNaN(n) | n <= 0) // 수가 아닌 경우 혹은 0보다 작거나 같은 경우
+			inputObjs[i].value = 0; // 0을 출력하고 더하지 않고 다음 루프로
+		else
+			total += parseInt(inputObjs[i].value); // 입력된 수의 합
+	}
+	
+	if(total == 0) 
+		return; // 입력된 것이 없기 때문에 그냥 리턴
+
+	//이전에 그려진 그림 지우기 
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	
+	// 학점별로 파이 그리기
+	var x = canvas.width/2; // 캔버스의 중심 x
+	var y = canvas.height/2; // 캔버스의 중심 y
+	var small = (x < y)?x:y; // 가로 세로 중 작은 것 결정 
+	var radius = small - 20; // 반지름을 캔버스 크기보다 20픽셀 작게 결정
+	var startAngle = 0;
+	var endAngle = 0;
+	for(var i=0; i<inputObjs.length; i++) {
+		var n = parseInt(inputObjs[i].value);
+		if(n == 0)
+			continue; // 다음 학점 그리기로 이동. 
+					 // 만일 이 코드가 없으면, 아래에서 시작 각도와 끝각도가 같아서 360도 원호를 그리게 됨
+		var deg = 360*n/total;
+		var rad = deg*Math.PI/180;
+		endAngle = startAngle + rad;
+	
+		context.beginPath(); // 새로운 경로 시작
+		context.moveTo(x, y);
+		context.arc(x, y, radius, startAngle, endAngle); // 각 원호 그리기
+		context.closePath(); // 원호의 끝점과 중심을 연결하여 닫힌 원도 만들기
+		
+		// 원호 내부에 칠할 색과 외곽선 색을 동일하게 지정
+		context.strokeStyle = colors[i];
+		context.fillStyle = colors[i];
+		context.fill(); // 원호 내부 칠하기
+		context.stroke(); // 원호 외곽선 그리기
+		startAngle = endAngle;
+	}
+	
+	// 텍스트 출력
+	context.font = "normal 15px gothic";
+	context.fillStyle = "blue";
+	for(var i=0;i<inputObjs.length; i++) {
+		var n = parseInt(inputObjs[i].value);
+		var percentage = Math.floor(n*100/total);
+		context.fillText(grades[i] + " 학점" + percentage + "% : " + colors[i], 10, 30 + i*16);
+	}	
+}
+</script>
+</head>
+<body onload="init()">
+<h3>학점 별로 학생 수를 입력하면 파이 차트로 비율 그리기
+</h3>
+<hr>
+A <input type="number" id="a" class="num" value="0"> 명
+B <input type="number" id="b" class="num" value="0"> 명 
+C <input type="number" id="c" class="num" value="0"> 명 <br>
+D <input type="number" id="d" class="num" value="0"> 명  
+F <input type="number" id="f" class="num" value="0"> 명 
+<input type="button" value="차트그리기" onclick="drawChart()"><br>
+<canvas id="canvas" width="600" height="400" style="background-color:aliceblue">
+</canvas>
+</body>
+</html>

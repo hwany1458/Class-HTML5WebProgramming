@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>getCurrentPosition()로 현재 위치 파악</title></head>
+<body>
+<h3>getCurrentPosition()로 현재 위치 파악</h3>
+<hr>
+<div id="msg">이곳에  위치 정보 출력</div>
+<div id="map"></div>
+<script>
+if(!navigator.geolocation) 
+	alert("지원하지 않음");
+else // found() 콜백 함수 등록
+	navigator.geolocation.getCurrentPosition(found); 	
+
+// 위치 파악 시 found() 호출. 
+// 위치 정보 들어 있는 position 객체가 매개 변수로 넘어온다.
+function found(position) {
+	var now = new Date(position.timestamp);
+	var lat = position.coords.latitude; // 위도
+	var lon = position.coords.longitude; // 경도	
+	var acc = position.coords.accuracy; // 정확도
+	
+	// 위도와 경도의 소수점 이하 자리가 너무 길어 유효 숫자 6자리로 짜름
+	lat = lat.toPrecision(6); lon = lon.toPrecision(6); 
+
+	var text = "현재 시간 " + now.toUTCString() + "<br>";
+	text += "현재 위치 (위도 " + lat + "°, 경도 " + lon + "°)<br>";
+	text += "정확도 " + acc + "m<br>";
+
+	document.getElementById("msg").innerHTML = text;
+    var img = new Image();
+    img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + lat
+    		+ "," + lon + "&zoom=13&size=400x300&sensor=false&markers=color:red%7Clabel:C%7C"+lat +"," +lon;
+
+    document.getElementById("map").appendChild(img); // 구글 지도 이미지를 div의 자식으로 붙임
+}
+</script>
+</body></html>

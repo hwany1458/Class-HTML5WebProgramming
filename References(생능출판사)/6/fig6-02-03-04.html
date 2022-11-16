@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+<h3>자바스크립트로 사용자 입력 및 대화</h3>
+<hr>
+<div id="result"></div>
+<script>
+var result = document.getElementById("result");
+
+function promptEX() {
+	var ret = prompt("이름을 입력하세요", "황기태");
+	if(ret == null) { 
+		   // 취소 버튼이나 다이얼로그를 닫은 경우
+		   result.innerHTML = "취소나 그냥 닫았군요"
+		}
+	else {
+		  // ret에는 사용자가 입력한 문자열
+		  // 아무 값도 입력하지 않으면, ret=""
+		   result.innerHTML = ret;		  
+	}
+}
+function confirmEX() {
+	var ret = confirm("전송할까요");
+	if(ret == true) {
+		  // 사용자가 "확인" 버튼을 누른 경우
+		   result.innerHTML ="확인을 눌렀군요";		  
+	}
+	else {
+		  // 취소 버튼이나 다이얼로그가 닫힌 경우
+		   result.innerHTML ="취소나 그냥 닫았군요";		  
+	}
+}
+function alertEX() {
+	alert("클릭하였습니다.");
+}
+</script>
+<button onclick="promptEX()">프롬프트 다이얼로그</button>
+<button onclick="confirmEX()">확인 다이얼로그</button>
+<button onclick="alertEX()">경고 다이얼로그</button>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이벤트 리스너</title>
+</head>
+<body>
+<h3>이벤트 흐름</h3>
+<hr>
+<div id="div1">안녕하세요. 환영합니다.</div>
+<script>
+function f() { // obj 객체의 배경색을 orchid 색으로 변경하는 함수
+	obj.style.backgroundColor="orchid";
+}
+var obj = document.getElementById("div1"); // id가 "div1"인 DOM 객체 알아내기
+// (2) obj.addEventListener("click", f);
+
+// (3) obj.onclick = f;
+
+// (4) obj.onclick = function (e) { obj.style.backgroundColor="orchid"; };
+</script>
+</body>
+</html>

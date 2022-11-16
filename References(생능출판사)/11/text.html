@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>텍스트 그리기</title></head>
+<body>
+<h3>텍스트 폰트와 정렬</h3>
+<hr>
+<canvas id="myCanvas" style="background-color:white"
+	 width="500" height="400"></canvas>
+<script>
+	var canvas = document.getElementById("myCanvas");
+	var context = canvas.getContext("2d");
+
+	// (30, 30) 위치에 3 픽셀 굵기의 blue 색으로  "Javascript" 외곽선 그리기
+	context.font = "50px arial"; 	
+	context.strokeStyle = "blue"; // 외곽선 색
+	context.lineWidth = 1; // 외곽선 굵기 1픽셀
+	context.strokeText("Javascript", 30, 100);
+	
+	// (30, 30) 위치에 green 색으로  "Javascript" 텍스트 내부만 채워 그리기
+	context.font = "50px arial"; 
+	context.fillStyle = "green"; // 채우기 색
+	context.fillText("Javascript", 30, 200); // 외곽선 없이 텍스트 내부를 초록으로 그린다.
+</script>	 
+</body>
+</html>

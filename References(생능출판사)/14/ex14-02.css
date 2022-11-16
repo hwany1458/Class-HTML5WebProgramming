@@ -1,0 +1,38 @@
+﻿body { background : #336633; }
+table {	display : inline-block; background : #CEFF84; }
+td { width : 85px; height : 130px; }
+#gametitle {
+	color : white;
+	font : bold 24pt verdana; text-align : center;
+}
+#gamepanel {
+	display : inline-block;
+}
+div#menu {
+	display : inline-block;
+	float : left;
+	width : 150px;
+	margin-top : 30px; 
+	padding-left : 10px; padding-right : 10px;
+}
+div#tablediv {
+	display : inline-block;
+	float : left;	
+	margin-top : 30px;
+}
+div.menuStyle{
+	display : inline-block;
+	width : 150px;
+	color : black;
+	background-color : #FFEEEE;
+	font : bold 16pt verdana; text-align : left;
+	margin : 2px;
+}
+div#gameover {
+	position : absolute; 
+	left : 360px; top : 270px;
+	width : 400px; height : 45px; 
+	text-align : center;
+	color : brown; font : bold 60px verdana;
+}
+#startMenu:hover, #explainMenu:hover { color : red; }

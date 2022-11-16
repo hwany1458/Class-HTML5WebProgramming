@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>animation</title>
+<style>
+@keyframes imagerotation {
+	0% { transform : rotate(-90deg);}
+	50% { transform : rotate(90deg);}
+	100% { transform : rotate(-90deg); }	
+}
+#tran {
+	animation-name : imagerotation;
+	animation-duration :1s;
+	animation-iteration-count : infinite; 
+}
+</style>
+</head>
+<body>
+<h3>어지러워요</h3>
+<hr>
+<img id="tran" src="media/spongebob.png"
+	width="100" height="100"
+	alt="animation">
+</body>
+</html>

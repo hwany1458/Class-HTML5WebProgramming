@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>오디오 재생</title>
+<style>
+td.index {
+	border : 1px solid yellowgreen;
+	padding-left : 3px;
+	padding-right : 3px;
+}
+th {
+	width : 200px;
+	text-align : left;
+	border-bottom : 1px solid gray;	
+}
+
+</style>
+<script>
+var audioFiles = ["media/Aegukga.mp3", "media/moonglow.mp3", "media/EmbraceableYou.mp3"];
+var currentIndex = -1; 
+var audio=null;
+function play(index) {
+	audio = document.getElementById("audio");
+	audio.src = audioFiles[index];
+	audio.play(); // 재생
+	currentIndex = index;
+}
+
+function pause(index) {
+	if(audio == null) return; // 오디오가 재생중이지 않은 경우
+	if(currentIndex != index) return; // 다른 음악의 중지 버튼이 클릭된 경우
+	audio.pause();
+}
+</script>
+</head>
+<body>
+<h3>오디오 재생</h3>
+<hr>
+<audio id="audio" controls>
+	웹 브라우저가 audio 태그를 지원하지 않습니다.
+</audio>
+<table>
+<tr><td class="index">1</td><th>애국가</th>
+	<td><button onclick="play(0)">재생</button></td>
+	<td><button onclick="pause(0)">중지</button></td></tr>
+<tr><td class="index">2</td><th>Moon Glow</th>
+	<td><button onclick="play(1)">재생</button></td>
+	<td><button onclick="pause(1)">중지</button></td></tr>
+<tr><td class="index">3</td><th>Embraceable You</th>
+	<td><button onclick="play(2)">재생</button>
+	<td><button onclick="pause(2)">중지</button></td></tr>
+</table>
+</body>
+</html>

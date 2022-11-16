@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>1~10까지 더하는 워크 태스크 만들기</title></head>
+<body>
+<h3>1~10까지 더하는 워커 태스크 만들기</h3>
+<hr>
+<script>
+	// addWorker 워커 객체 생성 및 워커 태스크 시작
+	var addWorker = new Worker("add1to10.js");
+	
+	// 워커 태스크로부터 받을 message 이벤트의 리스너 등록
+	addWorker.onmessage = function (e) {   
+		alert(e.data); // 이벤트 객체 e의 data 출력	
+	}
+</script>
+</body>
+</html>

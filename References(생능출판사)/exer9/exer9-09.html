@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트 연습</title>
+<script>
+var p;
+var strong;
+function init() {
+	setP();
+	setStrong();
+}
+
+function setP() {
+	p = document.getElementById("p");
+	p.addEventListener("click", function (e) {
+		alert(this.tagName + "+" + e.target.innerHTML);
+		}, true);
+}
+function setStrong() {
+	strong = document.getElementById("strong");
+	strong.onclick = function (e) {
+		alert(this.tagName + "+" + e.target.innerHTML);
+	};
+}
+</script>
+</head>
+<body onload="init()">
+<h3>이벤트 흐름</h3>
+<hr>
+<p id="p">이벤트가 어디서 시작하여 어디로 흘러가는지
+<strong id="strong">이벤트 흐름</strong>을
+아는 것은 매우 중요하다.
+</p>
+</body>
+</body>
+</html>

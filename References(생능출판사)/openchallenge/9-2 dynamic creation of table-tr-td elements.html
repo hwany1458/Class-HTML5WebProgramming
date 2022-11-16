@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>마우스 클릭 연습</title>
+<script>
+var select=-1; // 선택된 셀
+
+var tds;
+var img;
+function set() { 
+	createTable();
+	tds = document.getElementsByTagName("td");
+	img = document.createElement("img")
+	img.setAttribute("src", "media/donkey.png");
+	img.onclick = moveImage;
+	moveImage(); // 셀을 선택하고 이미지 출력
+}
+
+// <img> 태그의 click 리스너
+function moveImage() { // 다른 셀로 이미지를 옮긴다.
+	if(select != -1)  // 초기 상황이 아닌 경우
+		tds[select].removeChild(img); // img 객체 제거
+
+	select = Math.floor(Math.random()*tds.length); // 0~99 사이의 랜덤한 셀 선택
+	tds[select].appendChild(img); // img 객체를 <td>의 자식으로 삽입
+}
+
+function createTable() {
+	// <table> 엘리먼트 만들어 달기
+	var table = document.createElement("table");
+	table.style.border = "1px solid blue";
+	table.style.borderCollapse = "collapse"; 
+	document.body.appendChild(table);
+	
+	for(var i=0; i<10; i++) {
+		// <tr> 엘리먼트 만들어 달기
+		var tr = document.createElement("tr");
+		table.appendChild(tr);
+		for(var j=0; j<10; j++) {
+			// <td> 엘리먼트 만들어 달기
+			var td = document.createElement("td");
+			td.style.border = "1px solid blue";
+			td.style.width = "50px";
+			td.style.height = "50px";
+			td.style.padding = "0px";
+			tr.appendChild(td);
+		}
+	}
+}
+</script>
+</head>
+<body onload="set()">
+<h3>마우스 클릭 연습</h3>
+<hr>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>변환 예시</title>
+<style>
+div {
+	position:relative;
+	top:-38px;
+	left:20px;
+	display : inline-block;
+	color : white;
+	background : OliveDrab;
+	padding : 5px;
+}
+
+div#rotate { transform : rotate(20deg); }
+div#skew { transform : skew(0deg,-20deg); }
+div#translateY { transform : translateY(100px); }
+div#scale { transform : translateX(100px) scale(3,1); }
+</style></head>
+<body>
+<br><br>
+<p style="border-top:1px solid peru;"></p>
+<div id="rotate">rotate(20deg)</div>
+<div id="skew">skew(0,-20deg)</div>
+<div id="translateY">translateY(100px)</div>
+<div id="scale">scale(3,1)</div>
+</body>
+</html>

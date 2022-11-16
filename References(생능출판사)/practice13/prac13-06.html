@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>워커 태스크 만들기</title>
+<script>
+var worker=null;
+
+function startWorkTask() {
+	// 워커 태스크를 생성하고 decideGrade.js를 실행하도록 지시
+	worker = new Worker("prac13-06-calcMultiple.js");
+}
+
+function calculate() {
+	if(worker == null) {
+		alert("워커 태스크가 만들어지지 않았음");		
+		return; // 어떤 문제가 있는 상태
+	}
+
+	var parameters = {
+		op1 : document.getElementById("op1").value,
+		op2 : document.getElementById("op2").value
+	};
+	// 입력 받은 점수를 워커 태스크로 보내기
+	worker.postMessage(parameters);
+	
+	// 워커 태스크로부터 결과 수신 대기
+	worker.onmessage = function (e) {
+		document.getElementById("result").value = e.data;
+	}
+}
+</script>
+</head>
+<body onload="startWorkTask()">
+<h3>곱셈하기</h3>
+<hr>
+<form>
+<input id="op1" type="number" value="0"> x
+<input id="op2" type="number" value="0"> 
+<input type="button" onclick="calculate()" value="곱하기">
+<input id="result" type="text" value="0">
+</form>
+</body>
+</html>

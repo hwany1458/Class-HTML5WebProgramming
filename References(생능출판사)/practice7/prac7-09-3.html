@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<title>book 객체 만들기</title>
+</head>
+<body>
+<h3>book 객체 만들기</h3>
+<hr>
+<script>
+// (3)
+	// Book 프로토타입 만들기 만들기
+	function Book() {
+		this.title = "HTML5";
+		this.author = "황기태";
+		this.price = 20000;
+ 	}
+	
+	// Book 객체 생성
+	var book = new Book(); 
+	
+	// book 객체 출력
+	document.write("book : ");
+	document.write(book.title + ", ");
+	document.write(book.author + ", ");
+	document.write(book.price + "<br>");
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>웹 페이지의 자동 스크롤</title>
+<script>
+function startScroll(interval) {
+	setInterval("autoScroll()", interval);
+}
+
+function autoScroll() {
+	window.scrollBy(0,10); // 10픽셀 위로 스크롤
+}
+</script>
+</head>
+<body onload="startScroll(1000)">
+<h3>자동 스크롤 페이지</h3>
+<hr>
+<h3>꿈길(이동순)</h3>
+꿈길에<br>
+발자취가 있다면<br>
+님의 집 창밖<br>
+그 돌계단 길이 이미 오래 전에<br>
+모래가 되고 말았을 거예요<br><br>
+하지만<br>
+그 꿈길에서 자취 없다 하니<br>
+나는 그것이 정말 서러워요<br><br>
+이 밤도<br>
+나는 님의 집 창밖<br>
+그 돌계단 위에 홀로 서서<br>
+혹시라도 님의 목소리가 들려올까<br>
+고개 숙이고 엿들어요<br>
+</body>
+</html>

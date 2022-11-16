@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>setTimeout() 활용</title>
+<script>
+var sum=0;
+function f() {
+	sum++;
+	if(sum == 10) {
+		clearInterval(id);
+	}
+
+	// 추가한 코드
+	document.getElementById("span").innerHTML = sum;
+}
+var id = setInterval("f()", 2);
+</script>
+</head>
+<body>
+<h3>타이머 작동</h3>
+<hr>
+<p>타이머가 작동하여 합을 출력합니다. 합이 10이 되면 멈추는데 너무
+빨라 합이 출력되는 과정을 보이지 않고 결과만 보입니다.</p>
+<span id="span"></span>
+</body>
+</html>

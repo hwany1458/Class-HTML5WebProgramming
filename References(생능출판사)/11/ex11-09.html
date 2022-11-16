@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>(20, 20)에 100x200 크기로 그리기</title>
+</head>
+<body>
+<h3>(20, 20)에 100x200 크기로 그리기</h3>
+<hr>
+<canvas id="myCanvas" 
+		style="background-color:aliceblue"
+	 	width="300" height="250"></canvas>
+<script>
+	var canvas = document.getElementById("myCanvas");
+	var context = canvas.getContext("2d");
+	
+	var img = new Image();
+	img.onload = function () {
+		context.drawImage(img, 20, 20, 100, 200);
+	}
+	img.src = "media/elsa.png";
+</script>	 
+</body>
+</html>

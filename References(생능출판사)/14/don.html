@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>마우스 클릭 연습</title>
+<style>
+table {
+	border : 1px solid blue;
+	border-collapse : collapse; 
+}
+td {
+	border : 1px solid blue;
+	width : 50px;
+	height : 50px;
+	padding : 0px;
+}
+</style>
+<script>
+var select=-1; // 선택된 셀
+
+var tds;
+var img;
+function set() { 
+	tds = document.getElementsByTagName("td");
+	img = document.createElement("TD")
+	img.setAttibute("src", "media/donkey.png");
+	img.onclick = moveImage;
+	moveImage(); // 셀을 선택하고 이미지 출력
+}
+
+// <img> 태그의 click 리스너
+function moveImage() { // 다른 셀로 이미지를 옮긴다.
+	if(select != -1)  // 초기 상황이 아닌 경우
+		tds[select].remove(img); // img 객체 제거
+
+	select = Math.floor(Math.random()*tds.length); // 0~99 사이의 랜덤한 셀 선택
+	tds[select].appendChild(img); // img 객체를 <td>의 자식으로 삽입
+}
+</script>
+</head>
+<body onload="set()">
+<h3>마우스 클릭 연습</h3>
+<hr>
+<table>
+<tr><td></td><td></td><td></td><td></td>
+<td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td>
+<td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td>
+<td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td>
+<td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td>
+<td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td>
+<td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td>
+<td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td>
+<td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td>
+<td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td></td><td></td><td></td><td></td>
+<td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>캔버스에 마우스 드래깅으로 그림 그리기</title>
+</head>
+<body onload="init()">
+<h3>마우스를 누른 채 드래깅하여 그림을 그려 보세요</h3>
+<hr>
+<canvas id="myCanvas" style="background-color:aliceblue"
+	 width="500" height="400">
+</canvas><br>
+선굵기 :<input type="number" id="widthInput" value="2"
+	min="0" max="20" step="1" onchange="lineWidth=this.value">
+선 색 : <input type="color" id="colorInput" value="#00ff00" onchange="strokeColor=this.value">
+	 
+<script>
+var canvas, context; // 전역 변수
+var colorInputObj, widthInputObj;
+var lineWidth;
+var strokeColor;
+
+function init() {
+	canvas = document.getElementById("myCanvas");
+	context = canvas.getContext("2d");
+	widthInputObj = document.getElementById("widthInput");	
+	lineWidth =  widthInputObj.value;
+	
+	colorInputObj = document.getElementById("colorInput");
+	strokeColor = colorInputObj.value;
+	
+	// 마우스 핸들러에 리스너 코드를 등록한다.
+	canvas.addEventListener("mousemove", function (e) { move(e) }, false);
+	canvas.addEventListener("mousedown", function (e) { down(e) }, false);
+	canvas.addEventListener("mouseup", function (e) { up(e) }, false);
+	canvas.addEventListener("mouseover", function (e) { over(e) }, false);
+	canvas.addEventListener("mouseout", function (e) { out(e) }, false);
+}
+
+var startX=0, startY=0; // 마우스의 마지막 포인터 좌표
+var drawing=false;
+
+function draw(curX, curY) { // e는 MouseEvent 객체
+	context.beginPath();
+	context.lineWidth = lineWidth;
+	context.strokeStyle = strokeColor;	
+	context.moveTo(startX, startY);
+	context.lineTo(curX, curY);
+	context.stroke();
+}
+function down(e) {
+	startX = e.offsetX;
+	startY = e.offsetY;
+	drawing = true;
+}
+function up(e) { 
+	drawing = false;
+}
+function move(e) {
+	if(!drawing) 
+		return; // 마우스가 다운되지 않았으면 리턴
+
+	var curX = e.offsetX;
+	var curY = e.offsetY;
+	draw(curX, curY);	
+	startX = curX; startY = curY;
+}
+
+function out(e) { drawing = false; }
+</script>
+</body>
+</html>

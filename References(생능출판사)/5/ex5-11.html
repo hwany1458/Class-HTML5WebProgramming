@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>폼 스타일 주기</title>
+<style>
+input[type=text] { /* text 창에만 적용 */
+	color : red; 
+}
+input:hover, textarea:hover { /* 마우스 올라 올 때 */
+	background : aliceblue;
+}
+input[type=text]:focus, input[type=email]:focus { /* 포커스 받을 때 */
+	font-size : 120%; 
+}
+label {
+	display : block; /* 새 라인에서 시작 */
+	padding : 5px;
+}
+label span {
+	display : inline-block;
+	width : 90px;
+	text-align : right;
+	padding : 10px;
+}
+</style>
+</head>
+<body>
+<h3>CONTACT US</h3>
+<hr>
+<form>
+	<label>
+		<span>Name</span><input type="text" placeholder="Elvis">
+	</label>
+	<label>
+		<span>Email</span><input type="email" placeholder="elvis@graceland.com">
+	</label>
+	<label>
+		<span>Comment</span><textarea placeholder="메시지를 남겨주세요"></textarea>
+	</label>
+	<label>
+		<span></span><input type="submit" value="submit">
+	</label>		
+</form>
+</body>
+</html>

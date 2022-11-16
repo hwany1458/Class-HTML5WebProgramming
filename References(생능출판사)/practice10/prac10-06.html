@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<title>setInterval()/clearInterval()</title>
+<style>
+div {
+	display : inline-block;
+	width : 7em;
+	border : 1px solid gray;
+	background-color : aliceblue;
+	
+}
+</style>
+<script>
+var timerID=null;
+function startClock() {
+	var clock = document.getElementById("clock");
+	timeout(clock);
+	timerID = setInterval("timeout(clock)", 1000); // 1초 후 timeout() 호출
+}
+
+function timeout(obj) {
+	var current = new Date();
+	obj.innerHTML = current.toLocaleTimeString()
+}
+
+function controlClock() {
+	if(timerID == null) {
+		timerID = setInterval("timeout(clock)", 1000); // 1초 후 timeout() 호출
+		document.getElementById("clock").style.color = "black";
+	}
+	else {
+		clearInterval(timerID);
+		timerID = null;
+		document.getElementById("clock").style.color = "lightgray";
+	}
+}
+</script>
+</head>
+<body onload="startClock()">
+<h3>div 태그에 시계 만들기</h3>
+시계를 클릭하면 시계가 멈추고 다시 클릭하면 가기 시작한다.
+<hr>
+<div id="clock" onclick="controlClock()"></div>
+</body>
+</html>
+

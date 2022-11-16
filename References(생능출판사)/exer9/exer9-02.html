@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이벤트 리스너</title>
+<script>
+function init() {
+	 var button = document.getElementById("button");
+	 button.addEventListener("click", function () { alert("ONE") });
+	 button.addEventListener("click", function () { alert("TWO") });
+	 button.addEventListener("click", function () { alert("THREE") });
+
+}
+</script>
+</head>
+<body onload="init()">
+<h3>이벤트 흐름</h3>
+<hr>
+<button id="button">버튼</button>
+</body>
+</html>

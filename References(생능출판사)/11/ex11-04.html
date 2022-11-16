@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>원호 그리기</title></head>
+<body>
+<h3>원호 그리기</h3>
+<hr>
+<canvas id="myCanvas" style="background-color:aliceblue"
+	 width="200" height="150"></canvas>
+<script>
+	var canvas = document.getElementById("myCanvas");
+	var context = canvas.getContext("2d");
+	
+	context.beginPath(); // 빈 경로 구성
+	context.strokeStyle="magenta";	
+	context.arc(100, 70, 30, 0, 1.5*Math.PI, false); // 시계 방향
+	context.stroke(); // 경로에 있는 원호를 그린다
+
+	context.beginPath(); // 이전 경로 지우고 빈 경로 구성                  
+	context.strokeStyle="blue";
+	context.arc(100, 70, 50, Math.PI/2, Math.PI, true); // 시계 방향
+	context.stroke(); // 경로에 있는 한 개의 원호를 캔버스에 그린다
+</script>	 
+</body>
+</html>

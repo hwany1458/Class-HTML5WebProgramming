@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<title>transform:rotate()</title>
+<script>
+var n=2;
+function scale(obj) {
+	obj.style.transform = "scale(" + n + "," + 1 + ")";
+	n++;
+}
+</script>
+</head>
+<body>
+<h3>클릭하면 2,3,4배로 옆으로 늘어납니다.</h3>
+<hr>
+<div>
+<img src="media/spongebob.png" 
+	width="100" height="100" alt="animation"
+	onclick="scale(this)">
+</div>
+</body>
+</html>

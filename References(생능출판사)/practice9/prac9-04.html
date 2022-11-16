@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>onmousemove</title>
+<script>
+var cursor; // 커서 이미지를 가진 <div> 객체
+function makeCursor() {
+	cursor = document.getElementById("cursor");
+
+	// 매우 높은 z-index 값을 주어 무엇보다 위에 나타나게 함
+	// 사실상 이 라인은 없어도 됨
+	cursor.style.zIndex = 100;
+	
+	document.onmousemove = function (e) {
+		cursor.style.left = event.clientX + "px"; // 단위 "px"를 꼭 붙여야 함
+		cursor.style.top = event.clientY + "px";
+	}
+}
+</script>
+</head>
+<body onload="makeCursor()">
+<h3>이미지 커서 만들기</h3>
+<hr>
+<p id="p">마우스를 움직이면 이미지로 만든 커서가 마우스를
+따라 다닙니다</p>
+<div id="cursor" style="position:absolute;">
+	<img src="media/spongebob.png" width="30px" height="30px">
+</div>
+</body>
+</html>

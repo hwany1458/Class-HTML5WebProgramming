@@ -1,0 +1,16 @@
+<!DOCTYPE html />
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트 테스트</title>
+</head>
+<body>
+<div id="myDiv"></div>
+<script>
+var div = document.getElementById("myDiv"); // id가 myDiv인 DOM 객체를 알아낸다.
+var span = document.createElement("SPAN"); // <span> DOM 객체를 동적 생성한다.
+span.innerHTML = "hello"; // span의 텍스트로 hello를 삽입한다.
+div.appendChild(span);      // span을 div의 자식으로 삽입한다.
+</script>
+</body>
+</html>

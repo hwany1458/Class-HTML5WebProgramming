@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>브라우저 정보 출력</title>
+<style>
+span { color : blue; }
+div { 
+	border-color : yellowgreen; 
+	border-style : solid;
+	padding : 5px;
+}
+</style>
+<script>
+function printNavigator() {
+	var text = "<span>appCodeName</span>: " + navigator.appCodeName + "<br>";
+		text += "<span>appName</span>: " + navigator.appName + "<br>";
+		text += "<span>appVersion</span>: " + navigator.appVersion + "<br>";
+		text += "<span>platform</span>: " + navigator.platform + "<br>";
+		text += "<span>product</span>: " + navigator.product + "<br>";
+		text += "<span>userAgent</span>: " + navigator.userAgent +"<br>";
+		text += "<span>vendor</span>: " + navigator.vendor +"<br>";
+		text += "<span>language</span>: " + navigator.language + "<br>";
+		text += "<span>onLine</span>: " + navigator.onLine + "<br>";
+		text += "<span>cookieEnabled</span>: " + navigator.cookieEnabled + "<br>";
+		text += "<span>javaEnabled()</span>:" + navigator.javaEnabled() + "<br>";
+		text += "<span>plugins.length</span>: " + navigator.plugins.length + "<br>";
+		for(j=0; j<navigator.plugins.length; j++) {
+			text += "plugins" + j + " : <blockquote>";
+			text += navigator.plugins[j].name + "<br>";
+			text += "<i>" + navigator.plugins[j].description + "</i><br>";
+			text += navigator.plugins[j].filename + "</blockquote>";
+		}
+
+	// div 태그에 출력
+	var div = document.getElementById("div");
+	div.innerHTML = text;
+}
+</script>
+</head>
+<body onload="printNavigator()">
+<h3>브라우저에 관한 정보 출력</h3>
+아래에 이 브라우저에 관한 여러 정보를 출력합니다.
+<hr>
+<p>
+<div id="div"></div>
+</body>
+</html>

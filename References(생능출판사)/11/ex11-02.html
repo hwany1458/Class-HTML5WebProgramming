@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>캔버스 그리기 맛보기</title></head>
+<body>
+<h3>캔버스 그리기 맛보기</h3>
+<hr>
+<canvas id="myCanvas" style="background-color:aliceblue"
+	    width="250" height="150"></canvas>
+<script>
+	var canvas = document.getElementById("myCanvas");
+	var context = canvas.getContext("2d");
+
+	// 파란선으로 사각형 그리기
+	context.beginPath(); // 빈 경로 만들기
+	context.strokeStyle = "blue"; // 선 색  설정	
+	context.rect(30, 30, 50, 50); // (30,30)에서 50x50 크기 사각형을 경로에 삽입
+	context.stroke(); // 경로에 있는 모든 도형의 외곽선 그리기
+
+	// violet 색으로 채운 사각형 그리기
+	context.beginPath(); // 빈 경로 만들기	
+	context.fillStyle = "violet"; // 채우기 색 
+	context.rect(60, 60, 50, 50); // (60,60)에서 50x50 크기 사각형을 경로에 삽입	
+	context.fill(); // 경로에 있는 모든 도형의 내부만 채워 그리기
+
+	// green 색으로 텍스트 내부만 그리기
+	context.font = "20px Gothic";
+	context.fillStyle = "green"; // 채우기 색 
+	context.fillText("Text in Canvas", 100, 50); // 텍스트를 경로에 넣지 않고 바로  그리기
+</script>			 
+</body>
+</html>

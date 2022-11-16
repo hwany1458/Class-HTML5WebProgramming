@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>캔버스의 크기</title></head>
+<body>
+<h3>캔버스의 크기</h3>
+<hr>
+<canvas id="myCanvas" width="300" height="150"></canvas>
+<script>
+	var canvas = document.getElementById("myCanvas");
+	var width = canvas.width;
+	var height = canvas.height;
+	alert("캔버스는 " + width + "x" + height);
+
+	// 캔버스 영역이 보이도록 배경색을 칠하였음
+	canvas.style.backgroundColor ="yellowgreen";
+</script>
+</body>
+</html>

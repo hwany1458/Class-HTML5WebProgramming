@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<title>산수를 풀어 봅시다</title>
+<style>
+td {
+	padding-left : 10px;
+	padding-right : 10px;
+}
+</style>
+<script>
+function calc() {
+	var total = 0;
+	var qArray = document.getElementsByClassName("question");
+	var aArray = document.getElementsByClassName("answer");
+	for(i=0; i<qArray.length; i++) {
+		var question = qArray[i].innerHTML;
+		var correctAnswer = eval(question);
+		var userAnswer = aArray[i].value;
+		if(userAnswer=="" || isNaN(userAnswer)) {// 답이 없거나 문자가 입력된 경우
+			total += 0;
+			qArray[i].style.textDecoration = "line-through";
+		}
+		else if(parseInt(userAnswer) == correctAnswer) { // 답이 맞는 경우
+			total += 1;
+			qArray[i].style.textDecoration = "none"; // 혹시 이전에 틀린 문제에 다시 답을 하고 채점버튼을 누르는 경우를 위해
+		}
+		else {// 답이 틀린 경우
+			total += 0;
+			qArray[i].style.textDecoration = "line-through";
+		}
+	}
+	document.getElementById("score").innerHTML = total;
+}
+</script>
+</head>
+<body>
+<h3>산수 문제를 풀어 봅시다.</h3>
+수식을 계산하여 답을 입력하고 채점 버튼을 누르세요.
+<hr>
+<form>
+<table>
+<tr><td class="question">5*6</td><td><input class="answer" type="text" size="8"></td></tr>
+<tr><td class="question">7+5*3</td><td><input class="answer" type="text" size="8"></td></tr>
+<tr><td class="question">23*2</td><td><input class="answer" type="text" size="8"></td></tr>
+<tr><td class="question">35-7</td><td><input class="answer" type="text" size="8"></td></tr>
+<tr><td><button type="button" onclick="calc()">채점</button></td>
+	<td><span id="score">0</span></td></tr>
+</table>
+</form>
+</body>
+</html>

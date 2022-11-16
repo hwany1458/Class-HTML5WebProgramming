@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>비트 연산</title>
+<script>
+function digit8(v) { // 숫자 v를 8비트 2진수로 변환
+	var str="";
+	for(i=0; i<8; i++, v<<=1) {
+		if((v & 0x80)) str += "1";
+		else str += "0";
+	}
+	return str;
+}
+</script>
+</head>
+<body>
+<h3>비트 논리 연산과 시프트 연산</h3>
+<hr>
+<script>
+	var x=10, y=3;
+	document.write("<pre>");
+	document.write("x=" + x + ", y=" + y + "<br>"); // x, y 값 출력
+	document.write("x : 		" + digit8(x) + "<br>"); // x 값 출력
+	document.write("y : 		" + digit8(y) + "<br>"); // y 값 출력
+	document.write("<hr>");
+	document.write("x & y  : 	" + digit8(x&y) + "<br>");
+	document.write("x | y  : 	" + digit8(x|y) + "<br>");
+	document.write("x ^ y  : 	" + digit8(x^y) + "<br>");
+	document.write("~x     : 	" + digit8(~x) + "<br>");
+	document.write("<hr>");
+	document.write("x << 1 : 	" + digit8(x<<1) + " (" + (x<<1) + ")<br>");
+	document.write("x >> 1 : 	" + digit8(x>>1) + " (" + (x>>1) + ")<br>");
+	document.write("x >>> 1: 	" + digit8(x>>>1) + " (" + (x>>>1) + ")");
+	document.write("</pre>");
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>오디오</title>
+<script>
+var song;
+function f() {
+	song = document.getElementById("pop"); // audio DOM 객체 알아내기
+	song.onended = function (e) { // 현재 음악 재생이 끝나면
+		song.src = "media/birthday.mp3"; 	// birthday.mp3로 오디오 바꾸기
+		song.play(); 	
+		song.onended = null;
+	}
+}
+</script>
+</head>
+<body onload="f()">
+<audio id="pop" src="media/happy.mp3" autoplay controls>
+	웹 브라우저가 audio 태그를 지원하지 않습니다.
+</audio>
+</body>
+</html>

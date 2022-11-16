@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>스크린에 관한 정보 출력</title>
+<script>
+function printScreen() {
+	var text = "availHeight:" + screen.availHeight + "<br>";
+		text += "availWidth:" + screen.availWidth + "<br>";
+		text += "colorDepth:" + screen.colorDepth + "<br>";		
+		text += "pixelDepth:"	+ screen.pixelDepth + "<br>";
+		text += "height:" + screen.height + "<br>";	
+		text += "width:" + screen.width + "<br>";
+	document.getElementById("div").innerHTML = text;
+}
+</script>
+</head>
+<body onload="printScreen()">
+<h3>스크린 장치에 관한 정보</h3>
+<hr>
+<div id="div"></div>
+</body>
+</html>

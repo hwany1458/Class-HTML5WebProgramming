@@ -1,0 +1,38 @@
+html, body {
+	padding: 0px;
+	margin: 0px;
+	height: 100%;
+}
+
+h1 {
+	margin: 0px;
+	text-align : center;
+}
+
+header { 	
+ 	height: 80px;
+ 	background-color : yellow;
+  	overflow: hidden; /* 브라우저 크기를 작게하여 넘치게 되면 보이지 않도록 */
+ }
+
+footer {
+ 	height : 20%; 
+ 	background-color: plum;
+  	overflow: hidden; /* 브라우저 크기를 작게하여  넘치게 되면 보이지 않도록 */
+ }
+
+form {
+ 	height : 80%; 
+	background : pink;
+	border-style : none;
+	border-width : 1px;
+	margin-left : 10px;
+	margin-right : 10px;
+	margin-top : 00px;
+	margin-bottom : 10px;
+}
+.formspan {
+	font-family : gothic;
+	font-weight : bold;
+	color : blue;
+}
