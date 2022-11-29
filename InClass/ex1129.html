@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    
+    <script>
+        $(document).ready( function() { 
+            // 이벤트 연결
+            $('h3').mouseenter( function() {
+                //메시지 뿌려줌
+                //alert('제목 클릭');
+                //CSS 변경
+                $(this).css({
+                    background: 'red', color: 'white'
+                });
+            });
+            $('h3').mouseleave( function() {
+                $(this).css({
+                    background: '', color: ''
+                });
+            });
+            
+            // on() 이벤트연결
+            $('#box')
+            .css({ width:100, height:100, background:'red' })
+            .on('click', function() { $(this).css('background','green'); })
+            .on('mouseenter', function() { $(this).css('background','blue'); })
+            .on('mouseleave', function() { $(this).css('background','red'); })
+            ;
+            
+            // 원래 처리되는 이벤트(기능)을 제거
+            $('a').click(function(event) {
+                alert('A태그를 클릭, but 넘어가지 않음');
+                event.preventDefault();
+            });
+            
+            // 버튼클릭 이벤트를 연결
+            $('button').click( function() {
+                // 클릭했을 때 처리되는 내용
+                $('.page').fadeToggle(1000);
+            });
+            
+            $('#boxAni')
+            .css({ width:100, height:100, background:'magenta' })
+            .animate( {width:300, opacity:0.5}, 500)
+            ;
+
+        });
+    </script>
+</head>
+
+<body>
+    <h3>What is jQuery?</h3>
+    <hr>
+    <button>Toggle show the following sentences</button>
+    <p class="page">
+        jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers. With a combination of versatility and extensibility, jQuery has changed the way that millions of people write JavaScript.
+    </p>
+    <div id="box"></div>
+    <br><a href="http://www.naver.com">네이버</a>
+    <br><div id="boxAni"></div>
+</body>
+</html>
