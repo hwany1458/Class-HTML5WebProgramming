@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script>
+        // 이벤트 연결
+        window.onload = function() {
+            
+            // 키보드 입력을 알아볼려고 ...
+            window.onkeydown = function(event) {
+                //alert(event.keyCode);
+                // 0(48) ~ 9(57), backspace(8)
+                // 이외의 키 입력을 받으면, 에러를 표시하세요
+            }
+            
+            // -------- 입력양식 포커스 자동 설정 (주민번호 처리)
+            // input 태그로 선택자를 선택함 (배열로 받음)
+            var input1 = document.querySelectorAll('input')[0];
+            var input2 = document.querySelectorAll('input')[1];
+            
+            // 앞의 input태그에서 ..
+            input1.onkeydown = function() {
+                // 글자 개수가 여섯 개 이상일 경우
+                if (6 <= input1.value.length) {
+                    // input2 문서객체로 포커스 이동
+                    input2.focus();
+                }
+
+            };
+            
+            // 뒤의 input태그에서
+            input2.onkeydown = function() {
+                // 이벤트 객체를 추출
+                var event = event || window.event;
+                
+                // 사용자 입력이 'backspace' 이면서 입력된 글자가 없는 (길이가 0) 경우 
+                if (event.keyCode == 8 && input2.value.length == 0) {
+                    input1.focus();
+                }
+            };
+            
+            //---------------- 이미지 애니메이션
+            var count = 0;
+            // id로 선택자를 선택함
+            var image = document.getElementById('image');
+            var frames = ['./images/0.png','./images/1.png','./images/2.png','./images/3.png','./images/4.png','./images/5.png','./images/6.png','./images/7.png','./images/8.png','./images/9.png','./images/10.png','./images/11.png','./images/12.png','./images/13.png','./images/14.png'];
+            
+            // 타이머로 반복하면서 이미지 소스를 변경
+            setInterval(function() {
+                image.src = frames[count % frames.length];
+                count++;
+            }, (1000/frames.length));
+            
+        };
+    </script>
+</head>
+
+<body>
+    주민번호를 입력하세요 : 
+    <input type="text" maxlength="6">
+    <span>-</span>
+    <input type="text" maxlength="7">
+    <br>
+    <h3>Animation</h3>
+    <hr>
+    <img id="image">
+</body>
+<!-- 숙제
+ (1) 네이버 로그인, 웹정보시스템 로그인
+    아이디, 패스워드 입력하지 않고 [버튼]클릭했을 동작하는 코드를 찾으세요
+ (2) input 태그에서 포커스 이동시키는 (사이트)웹페이지를 찾아보세요
+-->
+</html>
