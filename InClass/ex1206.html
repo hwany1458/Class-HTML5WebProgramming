@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- jQuery 사용 -->
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    
+    <!-- jQuery Lightbox -->
+    <link rel="stylesheet" type="text/css" href="jquery.lightbox.css" media="screen" />
+    <!-- script src="jquery.lightbox.min.js"></script -->
+    
+    	<style type="text/css">
+		/* jQuery lightBox plugin - Gallery thumbnails styles */
+		* {
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+		#lightbox-container-image-data-box,
+		.gallery img {
+			/* Revert to default box-sizing for the data-box and the images */
+			-webkit-box-sizing: content-box;
+			-moz-box-sizing: content-box;
+			box-sizing: content-box;
+		}
+		.gallery {
+			background-color: #111;
+			padding: 30px;
+			width: 100%;
+		}
+		.gallery ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+		.gallery ul li { display: inline; }
+		.gallery ul img {
+			border-style: solid;
+			border-color: #444;
+			border-width: 5px 5px 20px;
+		}
+		.gallery ul a {
+			text-decoration: none;
+		}
+		.gallery ul a:hover img {
+			border-color: #fff;
+			color: #fff;
+		}
+		.gallery ul a:hover { color: #fff; }
+		.columns:before,
+		.columns:after {
+			content: " ";
+			display: table;
+		}
+		.columns:after {
+			clear: both;
+		}
+		.columns {
+			*zoom: 1;
+			margin-left: -15px;
+			margin-right: -15px;
+		}
+		.column {
+			width: 50%;
+			float: left;
+			position: relative;
+			padding-left: 15px;
+			padding-right: 15px;
+		}
+	</style>
+    
+    <script>
+        // 이벤트 연결
+        $(document).ready( function() {
+            var settings = {fixedNavigation:true};
+            $('a.light').lightBox(settings);
+        });
+    </script>
+</head>
+
+<body>
+    <!--a class="light" href="image1.jpg">LightBox</a>
+    <a class="light" href="image2.jpg">LightBox</a>
+    <a class="light" href="image3.jpg">LightBox</a -->
+    <h3>Gallery 1</h3>
+    
+<div class="columns">
+<div class="column galleries-set1">
+
+<div id="gallery1" class="gallery">
+	<ul>
+		<li>
+			<a href="./photos/image1.jpg" title="Use the flexibility of jQuery and create a group of images as desired. $('#gallery').lightBox();" rel="lightbox[gallery1]">
+				<img src="./photos/thumb_image1.jpg" width="72" height="72" alt="" />
+			</a>
+		</li>
+		<li>
+			<a href="./photos/image2.jpg" title="Use the flexibility of jQuery and create a group of images as desired. $('#gallery').lightBox();" rel="lightbox[gallery1]">
+				<img src="./photos/thumb_image2.jpg" width="72" height="72" alt="" />
+			</a>
+		</li>
+		<li>
+			<a href="./photos/image3.jpg" title="Use the flexibility of jQuery and create a group of images as desired. $('#gallery').lightBox();" rel="lightbox[gallery1]">
+				<img src="./photos/thumb_image3.jpg" width="72" height="72" alt="" />
+			</a>
+		</li>
+	</ul>
+</div><!-- /gallery1 -->
+
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- jQuery 사용 -->
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    
+    <script>
+        // 이벤트 연결
+        $(document).ready( function() {
+            // 문서객체를 추가하는 함수
+            var appendDocument = function() {
+            
+                for(var i=0; i<20; i++) {
+                    var $dynamic = $('<h3>문서객체 생성 ' + i + '</h3>')
+                            .css({backgroundColor:'blue', color:'white'})
+                            .appendTo('body');
+                }
+            }
+            
+            // 처음 로딩 시에, 문서 객체를 추가 (처음 디스플레이되는 내용)
+            appendDocument();
+            
+            // 이벤트 연결 - 스크롤 끝으로 갈때 문서 객체를 추가하여 아래로 콘텐츠가 추가되도록
+            $(window).scroll(function() {
+                // 변수 선언
+                var scrollHeight = $(window).scrollTop() + $(window).height();
+                var documentHeight = $(document).height();
+                
+                // 검사
+                if(scrollHeight == documentHeight) { appendDocument(); }
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+</body>
+</html>

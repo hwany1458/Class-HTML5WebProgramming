@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    
+    <style>
+        div.item:nth-child(1) { background: blueviolet; }
+        div.item:nth-child(2) { background: pink; }
+        div.item:nth-child(3) { background-color: burlywood; }
+        
+        body {
+            width: 100%; text-align: center;
+        }
+        .body {
+            display: flex; background-color: aquamarine;
+        }
+        .content {
+            width: 80%; background-color: aquamarine;
+        }
+        .leftSideBar, .rightSideBar {
+            width: 10%; background-color: aquamarine;
+        }
+    </style>
+    
+    <!-- jQuery 사용 -->
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    
+    <script>
+        $(document).ready(function () {
+            // 변수를 선언합니다.
+            var width = $('[data-role="slider"]').attr('data-width');
+            var height = $('[data-role="slider"]').attr('data-height');
+            var count = $('[data-role="slider"] div.item').length;
+            
+            // 스타일을 적용합니다.
+            $('[data-role="slider"]').css({
+                position: 'relative',
+                overflow: 'hidden',
+                width: width,
+                height: height
+            }).find('.container').css({
+                position: 'absolute',
+                width: count * width,
+                overflow: 'hidden'
+            }).find('.item').css({
+                width: width,
+                height: height,
+                float: 'left'
+            });
+            // 변수를 선언합니다.
+            var currentPage = 0;
+            var changePage = function () {
+                $('[data-role="slider"] > .container').animate({
+                    left: -currentPage * width
+                }, 500);
+            };
+            // 이벤트를 연결합니다.
+            $('#left-button').click(function () {
+                if (currentPage > 0) {
+                    // 왼쪽으로 이동
+                    currentPage = currentPage - 1;
+                    changePage();
+                }
+            });
+            $('#right-button').click(function () {
+                if (currentPage < count - 1) {
+                    // 오른쪽으로 이동
+                    currentPage = currentPage + 1;
+                    changePage();
+                }
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+    <div class="body">
+    <div class="leftSideBar"><button id="left-button">←</button></div>
+    <div class="content" data-role="slider" data-width="500" data-height="400">
+        <div class="container">
+            <div class="item">
+                <h3>Image #1</h3>
+                <p><img src="./image1.jpg"></p>
+            </div>
+            <div class="item">
+                <h3>Image #2</h3>
+                <p><img src="./image2.jpg"></p>
+            </div>
+            <div class="item">
+                <h3>Image #3</h3>
+                <p><img src="./image3.jpg"></p>
+            </div>
+        </div>
+    </div>
+    <div class="rightSideBar"><button id="right-button">→</button></div>
+    </div>
+</body>
+</html>
