@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Basic</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+    <script>
+        $(document).ready(function () {
+            // 변수를 선언합니다.
+            let text = $('h1').text();
+            let html = $('h1').html();
+            
+            // 출력합니다.
+            alert("text: " + text);
+            alert("html: " + html);
+        });
+    </script>
+</head>
+<body>
+    <h1>Header - 0</h1>
+    <h1>Header - 1</h1>
+</body>
+</html>

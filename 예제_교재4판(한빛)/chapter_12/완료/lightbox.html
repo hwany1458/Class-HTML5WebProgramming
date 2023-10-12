@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Light Box</title>
+    <link rel="stylesheet" href="jquery.lightbox.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+    <script src="jquery.lightbox.js"></script>
+    <script>
+        // 이벤트를 연결합니다.
+        $(document).ready(function () {
+            $('a.light').lightBox();
+        });
+    </script>
+</head>
+<body>
+    <a class="light" href="image1.jpg">LightBox</a>
+    <a class="light" href="image2.jpg">LightBox</a>
+    <a class="light" href="image3.jpg">LightBox</a>
+</body>
+</html>

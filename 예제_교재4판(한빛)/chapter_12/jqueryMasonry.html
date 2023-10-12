@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Masonry</title>
+    <style>
+        * { margin: 0; padding: 0; }
+
+        .box {
+            background: black;
+            margin: 5px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+    <script src="https://masonry.desandro.com/masonry.pkgd.min.js"></script>
+    <script>
+        // 이벤트를 연결합니다.
+        $(document).ready(function () {
+            // 문서 객체를 생성합니다.
+            for (let i = 0; i < 100; i++) {
+                $('<div></div>').addClass('box').css({
+                    width: 100,
+                    height: Math.floor(Math.random() * 100) + 50
+                }).appendTo('body');
+            }
+
+            // Masonry 플러그인을 적용합니다.
+            $('body').masonry({
+                columnWidth: 110
+            });
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

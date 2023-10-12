@@ -1,0 +1,10 @@
+<script src="https://code.jquery.com/jquery-3.4.6.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.outer-menu-item').hover(function () {
+            $(this).find('.inner-menu').show();
+        }, function () {
+            $(this).find('.inner-menu').hide();
+        });
+    });
+</script>
