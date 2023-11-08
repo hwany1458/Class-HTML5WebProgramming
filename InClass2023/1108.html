@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style></style>
+    <!-- 자바스크립트 위치(2) : script 태그 -->
+    <!-- script>
+        function over(obj)
+        {
+            obj.src= "./images/peach.jpg";
+        }
+        function out(obj)
+        {
+            obj.src = "./images/apple.jpg";
+        }
+    </script -->
+    <!-- 자바스크립트 위치(3) : 별도의 자바스크립트 파일을 만들고 불러오기  -->
+    <script src="1108.js"></script>
+</head>
+
+<body>
+    <h3>Javascript Example</h3>
+    
+    <!-- 자바스크립트 위치(1) : HTML 태그 속성으로  --->
+    <!-- img src="./images/apple.jpg" onmouseover="this.src='./images/peach.jpg'"
+    onmouseout="this.src='./images/apple.jpg'" -->
+
+    <img src="./images/apple.jpg" 
+         onmouseover="over(this)"
+         onmouseout="out(this)">
+    
+    <br>
+    <a href="javascript:alert('클릭하셨어요?')">
+	클릭해보세요</a>
+    
+    <script>
+var ret = confirm("진짜로 삭제하겠습니까?");
+if(ret == true) {
+	// 사용자가 "확인" 버튼을 누른 경우
+    alert('확인 버튼을 클릭했습니다');
+}
+else {
+	// 취소 버튼이나 다이얼로그를 닫은 경우
+    alert('취소했습니다');
+}
+    
+    </script>
+    
+    
+    <script>
+var ret = prompt("이름을 입력하세요", "");
+if(ret == null) { 
+	// 취소 버튼이나 다이얼로그를 닫은 경우
+    alert('취소버튼을 눌렀습니다');
+}
+else if(ret == "") {
+	// 문자열 입력 없이 확인 버튼 누른 경우
+    alert('입력하지 않았습니다');
+}
+else {
+	// ret에는 사용자가 입력한 문자열
+    //alert(ret);
+    document.write(ret);
+}
+    
+    </script>
+    
+    
+    <h3>이용환</h3>
+    <script>
+        document.write("<h2>이용환</h2>");
+    </script>
+
+</body>
+</html>
