@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script>
+        window.onload = function() {
+        //document.querySelector('h1').style.backgroundColor = 'red';
+            // 문서 객체 선택
+            var selectObj = document.getElementById('Chapter1');
+            
+            // 객체 조작(처리)
+            selectObj.style.backgroundColor = "green";
+            selectObj.innerHTML = "변경된 중간제목";
+            
+            // 1개 return
+            var selectObjTitle = document.querySelector('h3');
+            selectObjTitle.style.backgroundColor = 'blue';
+            selectObjTitle.style.color = 'white';
+            selectObjTitle.innerHTML = '디지털콘텐츠공학과 소개';
+            
+            // 여러개 return (배열)
+            var selectObjTitlesArray = document.querySelectorAll('h1');
+            // 배열처리하기 위해 반복문 실행
+            for (var i=0; i<selectObjTitlesArray.length; i++) {
+                var obj = selectObjTitlesArray[i];
+                obj.style.backgroundColor = 'cyan';
+                // (1) 태그 먹힘
+                obj.innerHTML = (i+1) + '<br> 장';
+                // (2) 태그 안먹힘 (전체를 순수하게 문자열로 인식)
+                //obj.textContent = (i+1) + '<br> 장';
+            }
+            
+        }
+    </script>
+</head>
+
+<body>
+    <h1 id="Title1"></h1>
+    <h2 id="Chapter1"></h2>
+    <h3 id="Section3"></h3>
+    <h1 id="Title2"></h1>
+    <hr>
+    <script>
+        
+    </script>
+</body>
+</html>
